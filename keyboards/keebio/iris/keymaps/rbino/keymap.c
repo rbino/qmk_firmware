@@ -3,6 +3,7 @@
 #include "keymap_italian.h"
 
 #define RBN_LG_ESC LGUI_T(KC_ESC)
+#define RBN_CTL_ENT LCTL_T(KC_ENT)
 
 #define _QWERTY 0
 #define _LOWER 1
@@ -28,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_GRV,           KC_DEL,  KC_N,    KC_M,    IT_COMM, IT_DOT,  IT_MINS, KC_RSFT,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    KC_LCTL, LOWER,   KC_ENT,                    KC_SPC,  RAISE,   KC_RALT
+                                    KC_LALT, LOWER,   RBN_CTL_ENT,               KC_SPC,  RAISE,   KC_RALT
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
