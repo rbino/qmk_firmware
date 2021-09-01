@@ -4,7 +4,19 @@
 
 #define RBN_LG_ESC LGUI_T(KC_ESC)
 #define RBN_CTL_ENT LCTL_T(KC_ENT)
-#define RBN_CTL_DEL RCTL_T(KC_DEL)
+#define RBN_CTL_AACC RCTL_T(IT_AACC)
+#define RBN_SFT_DEL RSFT_T(KC_DEL)
+
+#define RBN_TRM LGUI(KC_ENT)
+#define RBN_WSPS LGUI(KC_G)
+#define RBN_WSP1 LGUI(KC_1)
+#define RBN_WSP2 LGUI(KC_2)
+#define RBN_WSP3 LGUI(KC_3)
+#define RBN_WSP4 LGUI(KC_4)
+#define RBN_WSP5 LGUI(KC_5)
+#define RBN_WSP6 LGUI(KC_6)
+#define RBN_WSP7 LGUI(KC_7)
+#define RBN_WSP8 LGUI(KC_8)
 
 #define _QWERTY 0
 #define _LOWER 1
@@ -38,9 +50,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    IT_EACC,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-  RBN_LG_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    IT_OACC, IT_AACC,
+   RBN_LG_ESC,KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    IT_OACC, RBN_CTL_AACC,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-    RBN_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_MUTE,          KC_MPLY, KC_N,    KC_M,    IT_COMM, IT_DOT,  IT_MINS, RBN_CTL_DEL,
+    RBN_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_MUTE,          KC_MPLY, KC_N,    KC_M,    IT_COMM, IT_DOT,  IT_MINS, RBN_SFT_DEL,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     KC_LALT, LOWER,   RBN_CTL_ENT,               KC_SPC,  RAISE,   KC_RALT
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -48,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     KC_TILD, IT_EXLM, IT_DQOT, IT_STRL, IT_DLR,  IT_PERC,                            IT_AMPR, IT_SLSH, IT_CRC,  IT_QST,  IT_APOS, IT_IACC,
+     _______, _______, _______, _______, _______, _______,                            IT_AMPR, IT_SLSH, IT_CRC,  IT_QST,  IT_APOS, IT_IACC,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, _______, _______, _______, _______, _______,                            _______, KC_HOME, KC_END,  _______, _______, IT_PLUS,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
@@ -62,15 +74,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                              KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
+     KC_F12,  RBN_WSP1,RBN_WSP2,RBN_WSP3,RBN_WSP4,RBN_WSP5,                           RBN_WSP6,RBN_WSP7,RBN_WSP8,KC_TAB,  KC_ESC,  _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, IT_EXLM, IT_DQOT, IT_STRL, IT_DLR,  IT_PERC,                            IT_AMPR, IT_SLSH, IT_LPRN, IT_RPRN, IT_EQL,  _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, IT_LCBR, IT_LBRC, IT_LPRN, _______,                            _______, IT_RPRN, IT_RBRC, IT_RCBR, _______, KC_PSCR,
+     _______, _______, IT_LCBR, IT_LBRC, IT_LPRN, RBN_WSPS,                           _______, IT_RPRN, IT_RBRC, IT_RCBR, _______, KC_PSCR,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      _______, _______, _______, _______, _______, _______, _______,          _______, KC_VOLD, KC_MUTE, KC_VOLU, _______, _______, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    _______, _______, _______,                   _______, _______, _______
+                                    _______, _______, RBN_TRM,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
