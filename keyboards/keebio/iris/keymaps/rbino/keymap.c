@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
    RBN_LG_ESC,KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    IT_OGRV, RBN_CTL_AGRV,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-    RBN_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_MUTE,          KC_MPLY, KC_N,    KC_M,    IT_COMM, IT_DOT,  IT_MINS, RBN_SFT_DEL,
+    RBN_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_MUTE,          RGB_TOG, KC_N,    KC_M,    IT_COMM, IT_DOT,  IT_MINS, RBN_SFT_DEL,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     KC_LALT, LOWER,   RBN_CTL_ENT,               KC_SPC,  RAISE,   KC_RALT
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -149,6 +149,12 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
             tap_code(KC_VOLU);
         } else {
             tap_code(KC_VOLD);
+        }
+    } else if (index == 1) {
+        if (clockwise) {
+            tap_code(KC_PGDN);
+        } else {
+            tap_code(KC_PGUP);
         }
     }
     return false;
